@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+input:focus {
+  outline: none;
+}

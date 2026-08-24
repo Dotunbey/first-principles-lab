@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Classic Tic-Tac-Toe - Q-learning Live Training</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Q-learning agent training live (classic tic-tac-toe)</h1>
+<p class="subtitle">You control every step: initialize, start, pause, resume, stop. Every move and every weight update shown as it happens.</p>
+
+<div class="panel config-panel">
+  <h2>1. Configure &amp; Initialize</h2>
+  <div class="config-grid">
+    <label>Opponent
+      <select id="cfg_opponent">
+        <option value="mcts">MCTS (adjustable strength)</option>
+        <option value="perfect">Perfect solver (unbeatable)</option>
+        <option value="self">Self-play (same agent, both sides - requires TD(0))</option>
+      </select>
+    </label>
+    <label>Update rule
+      <select id="cfg_update_rule">
+        <option value="sparse">Monte Carlo - sparse (baseline)</option>
+        <option value="shaped">Monte Carlo - shaped (perfect solver Φ)</option>
+        <option value="td0">TD(0) - online, self-bootstrapped (pure, no solver)</option>
+      </select>
+    </label>
+    <label>Draw reward <input id="cfg_draw_reward" type="number" step="0.05" value="-0.2"></label>
+    <label>Learning rate (alpha) <input id="cfg_learning_rate" type="number" step="0.01" value="0.1"></label>
+    <label>Discount factor (gamma) <input id="cfg_discount_factor" type="number" step="0.01" value="0.9"></label>
+    <label>Epsilon start <input id="cfg_epsilon_start" type="number" step="0.01" value="0.4"></label>
+    <label>Epsilon end <input id="cfg_epsilon_end" type="number" step="0.01" value="0.05"></label>
+    <label>Epsilon decays over N games <input id="cfg_epsilon_decay_games" type="number" value="300"></label>
+    <label>MCTS iterations/move <input id="cfg_mcts_iterations" type="number" value="150"></label>
+    <label>Games per "Start" click <input id="cfg_games_per_run" type="number" value="50"></label>
+    <label>Move delay (sec) <input id="cfg_move_delay" type="number" step="0.1" value="0.5"></label>
+    <label>Q-update delay (sec) <input id="cfg_update_delay" type="number" step="0.1" value="0.6"></label>
+    <label>Checkpoint every N games <input id="cfg_checkpoint_interval" type="number" value="25"></label>
+    <label>Checkpoint eval games <input id="cfg_checkpoint_eval_games" type="number" value="10"></label>
+    <label>Checkpoint MCTS iterations <input id="cfg_checkpoint_mcts_iterations" type="number" value="80"></label>
+  </div>
+  <div class="button-row">
+    <button id="initBtn" class="primary">Initialize Fresh Agent</button>
+    <button id="applyBtn">Apply Params Live</button>
+    <button id="startBtn" class="primary">Start</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resumeBtn">Resume</button>
+    <button id="stopBtn" class="danger">Stop</button>
+    <label class="speed-control">
+      Speed <input id="speedSlider" type="range" min="0" max="100" value="40">
+      <span id="speedLabel"></span>
+    </label>
+    <span id="statusText">idle</span>
+  </div>
+  <div id="initialWeights" class="initial-weights"></div>
+</div>
+
+<div class="grid">
+
+  <div class="panel">
+    <h2>Board <span id="gameCounter"></span></h2>
+    <div id="board" class="board"></div>
+    <p id="moveExplanation" class="explanation"></p>
+  </div>
+
+  <div class="panel">
+    <h2>Q-value update (the actual math, live)</h2>
+    <div id="qUpdate" class="q-update">Waiting for a game to finish...</div>
+    <p class="hint">Backward pass: last move played updates first, using the terminal reward;
+       each earlier move then updates using the discounted result of the move after it.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Weights changing, in order</h2>
+    <div id="weightFeed" class="weight-feed"></div>
+    <p class="hint">Every Q(s,a) change, most recent first - this is the actual table being written to, live.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Closing the gap: win rate vs opponent</h2>
+    <canvas id="chart" width="480" height="260"></canvas>
+    <p class="hint">Evaluated every N training games (configurable above), greedy (no exploration), alternating sides.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Value error vs exact ground truth (the real training loss)</h2>
+    <canvas id="lossChart" width="480" height="260"></canvas>
+    <p class="hint">Mean |agent's best-known value - solver's exact value| across every state in the Q-table.
+       No opponent, no sampling, no noise - should trend toward 0 as training genuinely improves.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Recent games</h2>
+    <div id="outcomeLog" class="outcome-log"></div>
+  </div>
+
+</div>
+
+<div class="panel human-play-panel">
+  <h2>Play against this agent yourself</h2>
+  <p class="hint">Uses the agent's current Q-table, greedy (no exploration), no training happens while you play.
+     Training must be stopped (not just paused) first - the two can't safely share the agent at the same time.</p>
+  <div class="button-row">
+    <label>Play as
+      <select id="humanSymbol">
+        <option value="X">X (moves first)</option>
+        <option value="O">O (agent moves first)</option>
+      </select>
+    </label>
+    <button id="humanNewGameBtn" class="primary">New Game</button>
+    <span id="humanStatusText"></span>
+  </div>
+  <div class="grid">
+    <div>
+      <div id="humanBoard" class="board"></div>
+      <p id="humanExplanation" class="explanation"></p>
+    </div>
+    <div>
+      <h3>Moves</h3>
+      <div id="humanMoveLog" class="outcome-log"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

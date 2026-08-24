@@ -1,0 +1,22 @@
+Enumerating solver states...
+  4974 states.
+Building training examples (solver optimal-move targets, ties included)...
+  train: 3979, test: 995
+epoch   1/60: train value_loss=0.5588 policy_loss=1.4213 | held-out: value_MAE=0.5903 policy_top1_acc=0.6503
+epoch   5/60: train value_loss=0.3825 policy_loss=1.2433 | held-out: value_MAE=0.4897 policy_top1_acc=0.7668
+epoch  10/60: train value_loss=0.2738 policy_loss=1.1118 | held-out: value_MAE=0.4456 policy_top1_acc=0.8201
+epoch  15/60: train value_loss=0.2105 policy_loss=1.0121 | held-out: value_MAE=0.3745 policy_top1_acc=0.8653
+epoch  20/60: train value_loss=0.1750 policy_loss=0.9529 | held-out: value_MAE=0.3456 policy_top1_acc=0.8784
+epoch  25/60: train value_loss=0.1473 policy_loss=0.9068 | held-out: value_MAE=0.3261 policy_top1_acc=0.8925
+epoch  30/60: train value_loss=0.1317 policy_loss=0.8769 | held-out: value_MAE=0.3087 policy_top1_acc=0.9085
+epoch  35/60: train value_loss=0.1176 policy_loss=0.8591 | held-out: value_MAE=0.2950 policy_top1_acc=0.9176
+epoch  40/60: train value_loss=0.1052 policy_loss=0.8381 | held-out: value_MAE=0.2893 policy_top1_acc=0.9156
+epoch  45/60: train value_loss=0.0968 policy_loss=0.8225 | held-out: value_MAE=0.2722 policy_top1_acc=0.9196
+epoch  50/60: train value_loss=0.0895 policy_loss=0.8109 | held-out: value_MAE=0.2646 policy_top1_acc=0.9246
+epoch  55/60: train value_loss=0.0831 policy_loss=0.8026 | held-out: value_MAE=0.2621 policy_top1_acc=0.9246
+epoch  60/60: train value_loss=0.0769 policy_loss=0.7928 | held-out: value_MAE=0.2506 policy_top1_acc=0.9286
+Saved to stage1_policy_imitation_net.pkl
+
+=== Decisive test: network plays both sides itself, no help, vs perfect solver ===
+Network as X vs perfect solver as O: 20 wins, 0 losses, 0 draws
+Network as O vs perfect solver as X: 0 wins, 20 losses, 0 draws

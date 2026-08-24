@@ -1,0 +1,11 @@
+Session file: C:\Users\Hp\Documents\New folder\tic-tac-toe-classic\head_to_head_dashboard\head_to_head_session.pkl
+Agent A (5013 / current (warm-started, +human play)): C:\Users\Hp\Documents\New folder\tic-tac-toe-classic\head_to_head_dashboard\..\web_dashboard\live_session.pkl
+Agent B (5014 / fresh (self-play)): C:\Users\Hp\Documents\New folder\tic-tac-toe-classic\head_to_head_dashboard\..\web_dashboard\live_session_fresh.pkl
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5016
+Press CTRL+C to quit
+127.0.0.1 - - [06/Jul/2026 17:27:17] "POST /api/start HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2026 17:27:21] "GET /api/state HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2026 17:27:51] "GET /api/state HTTP/1.1" 200 -

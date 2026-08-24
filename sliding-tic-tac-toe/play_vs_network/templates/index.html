@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Play against an AlphaZero-style variant</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Play against a trained network</h1>
+<p class="subtitle">Every variant moves greedily (best-known MCTS move, no exploration randomness) - its strongest available play.</p>
+
+<div class="panel">
+  <div class="button-row">
+    <label>Variant
+      <select id="variantSelect"></select>
+    </label>
+    <label>Play as
+      <select id="humanSymbol">
+        <option value="X">X (moves first)</option>
+        <option value="O">O (agent moves first)</option>
+      </select>
+    </label>
+    <button id="newGameBtn" class="primary">New Game</button>
+    <span id="statusText"></span>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="panel">
+    <div id="board" class="board"></div>
+    <p id="explanation" class="explanation"></p>
+  </div>
+  <div class="panel">
+    <h2>Moves</h2>
+    <div id="moveLog" class="outcome-log"></div>
+  </div>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Session file: C:\Users\Hp\Documents\New folder\tic-tac-toe-classic\web_dashboard\live_session.pkl
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5013
+Press CTRL+C to quit
+127.0.0.1 - - [06/Jul/2026 17:05:46] "GET /api/state HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2026 17:19:08] "GET /api/state HTTP/1.1" 200 -

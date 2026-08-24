@@ -1,0 +1,117 @@
+[
+  {
+    "id": "expert_001",
+    "players": [
+      "Master_A",
+      "Master_B"
+    ],
+    "result": "Master_A_wins",
+    "moves": [
+      0,
+      7,
+      2,
+      9,
+      1,
+      8,
+      3,
+      10
+    ],
+    "board_start": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "final_score": [
+      26,
+      18
+    ],
+    "comments": "Strategic opening with control of center houses"
+  },
+  {
+    "id": "expert_002",
+    "players": [
+      "Grandmaster_X",
+      "Grandmaster_Y"
+    ],
+    "result": "Grandmaster_Y_wins",
+    "moves": [
+      5,
+      6,
+      4,
+      7,
+      3,
+      8,
+      2,
+      9,
+      1,
+      10
+    ],
+    "board_start": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "final_score": [
+      19,
+      25
+    ],
+    "comments": "Aggressive early play focusing on opponent's side"
+  },
+  {
+    "id": "expert_003",
+    "players": [
+      "Expert_Player_1",
+      "Expert_Player_2"
+    ],
+    "result": "Draw",
+    "moves": [
+      2,
+      9,
+      1,
+      8,
+      3,
+      7,
+      4,
+      6,
+      5,
+      0
+    ],
+    "board_start": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "final_score": [
+      24,
+      24
+    ],
+    "comments": "Symmetrical play leading to draw"
+  }
+]

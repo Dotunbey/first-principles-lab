@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Live AlphaZero-style Training - Sliding Tic-Tac-Toe</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Neural net + guided MCTS self-play, live</h1>
+<p class="subtitle">You control every step: initialize, start, pause, resume, stop. The live board, the MCTS search's own numbers, and the actual training loss/weight-update math are all shown as they happen - a separate, freshly-initialized network from every batch-trained variant.</p>
+
+<div class="panel config-panel">
+  <h2>1. Configure &amp; Initialize</h2>
+  <div class="config-grid">
+    <label>MCTS iterations/move <input id="cfg_mcts_iterations" type="number" value="60"></label>
+    <label>Temperature moves <input id="cfg_temperature_moves" type="number" value="6"></label>
+    <label>Noise fraction <input id="cfg_noise_frac" type="number" step="0.05" value="0.25"></label>
+    <label>Learning rate <input id="cfg_learning_rate" type="number" step="0.0001" value="0.001"></label>
+    <label>Batch size <input id="cfg_batch_size" type="number" value="64"></label>
+    <label>Games per iteration <input id="cfg_games_per_iteration" type="number" value="6"></label>
+    <label>Iterations per "Start" click <input id="cfg_iterations_per_run" type="number" value="20"></label>
+    <label>Move delay (sec) <input id="cfg_move_delay" type="number" step="0.1" value="0.4"></label>
+  </div>
+  <div class="button-row">
+    <button id="initBtn" class="primary">Initialize Fresh Network</button>
+    <button id="applyBtn">Apply Params Live</button>
+    <button id="startBtn" class="primary">Start</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resumeBtn">Resume</button>
+    <button id="stopBtn" class="danger">Stop</button>
+    <span id="statusText">idle</span>
+  </div>
+  <div id="initialWeights" class="initial-weights"></div>
+</div>
+
+<div class="grid">
+
+  <div class="panel">
+    <h2>Self-play board <span id="gameCounter"></span></h2>
+    <div id="board" class="board"></div>
+    <p id="moveExplanation" class="explanation"></p>
+  </div>
+
+  <div class="panel">
+    <h2>MCTS search stats for the move just chosen</h2>
+    <div id="mctsStats" class="mcts-stats">Waiting for a move...</div>
+    <p class="hint">Every legal move considered from the root, sorted by visit count (the same ordering MCTS itself uses to pick the final move). PUCT score = -value + c_puct * prior * sqrt(parent visits) / (1 + visits).</p>
+  </div>
+
+  <div class="panel">
+    <h2>Training step math (runs once per iteration, after all self-play games)</h2>
+    <div id="trainingMath" class="q-update">Waiting for the first training step...</div>
+    <p class="hint">Weight-update norms are the Frobenius norm ||W_after - W_before|| for each matrix - a concrete number for "how much did the network actually change," the closest equivalent here to the Q-dashboard's per-value weight feed.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Value error vs. exact solver (the real training loss)</h2>
+    <canvas id="lossChart" width="480" height="260"></canvas>
+    <p class="hint">Mean |network's value - solver's exact value|, split by whose turn it is - no opponent, no sampling noise, should trend toward 0 as training genuinely improves.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Win/draw distribution per iteration</h2>
+    <canvas id="winChart" width="480" height="260"></canvas>
+    <p class="hint">Out of the self-play games generated that iteration (both sides played by this same network).</p>
+  </div>
+
+  <div class="panel">
+    <h2>Recent iterations</h2>
+    <div id="outcomeLog" class="outcome-log"></div>
+  </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

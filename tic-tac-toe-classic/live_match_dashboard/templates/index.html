@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Live Match: Q-agent vs Neural Net - Classic Tic-Tac-Toe</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Q-learning table vs AlphaZero-style network</h1>
+<p class="subtitle">Same game, two different architectures, playing each other repeatedly. Before every game, both agents are reloaded from their own live training dashboards' current checkpoints - so this reflects their real, ongoing strength as they keep training.</p>
+
+<div class="panel config-panel">
+  <h2>Configure &amp; Control</h2>
+  <div class="config-grid">
+    <label>Network MCTS iterations/move <input id="cfg_mcts_iterations" type="number" value="100"></label>
+    <label>Move delay (sec) <input id="cfg_move_delay" type="number" step="0.1" value="0.3"></label>
+    <label>Games per "Start" click <input id="cfg_games_per_run" type="number" value="200"></label>
+  </div>
+  <div class="button-row">
+    <button id="applyBtn">Apply Params Live</button>
+    <button id="startBtn" class="primary">Start</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resumeBtn">Resume</button>
+    <button id="stopBtn" class="danger">Stop</button>
+    <span id="statusText">idle</span>
+  </div>
+  <div id="sourceInfo" class="initial-weights"></div>
+</div>
+
+<div class="grid">
+
+  <div class="panel">
+    <h2>Current game <span id="gameCounter"></span></h2>
+    <div id="board" class="board"></div>
+    <p id="moveExplanation" class="explanation"></p>
+  </div>
+
+  <div class="panel">
+    <h2>Score</h2>
+    <div id="scoreBoard" class="mcts-stats"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Win rate over the match</h2>
+    <canvas id="scoreChart" width="480" height="260"></canvas>
+    <p class="hint">Cumulative win rate for each side, and the draw rate, as more games are played.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Recent games</h2>
+    <div id="outcomeLog" class="outcome-log"></div>
+  </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

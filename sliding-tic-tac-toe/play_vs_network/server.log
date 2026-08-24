@@ -1,0 +1,10 @@
+Loading all network variants (once, at startup)...
+Loaded: ['unbalanced', 'balanced', 'teacher', 'exploration', 'o_compute', 'imitate', 'twonet', 'catchup', 'catchup_wr']
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5020
+Press CTRL+C to quit
+127.0.0.1 - - [06/Jul/2026 14:42:30] "GET /api/variants HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2026 14:42:30] "POST /api/new HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jul/2026 14:42:39] "POST /api/move HTTP/1.1" 200 -

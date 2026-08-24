@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Head-to-head: 5013 vs 5014</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Head-to-head: the two classic tic-tac-toe agents</h1>
+<p class="subtitle" id="labelsText">Both agents reloaded fresh from disk before every game, so this always reflects current knowledge - including human-play updates and ongoing background self-play.</p>
+
+<div class="panel config-panel">
+  <div class="config-grid">
+    <label>Move delay (sec) <input id="cfg_move_delay" type="number" step="0.1" value="0.3"></label>
+    <label>Games per "Start" click <input id="cfg_games_per_run" type="number" value="20"></label>
+    <label>Rolling window (games) <input id="cfg_rolling_window" type="number" value="20"></label>
+  </div>
+  <div class="button-row">
+    <button id="startBtn" class="primary">Start</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resumeBtn">Resume</button>
+    <button id="stopBtn" class="danger">Stop</button>
+    <span id="statusText">idle</span>
+  </div>
+</div>
+
+<div class="panel scoreboard-panel">
+  <h2>Scoreboard <span id="gameCounter"></span></h2>
+  <div class="scoreboard">
+    <div class="score-box a"><div class="score-label" id="aLabel">A</div><div class="score-value" id="aWins">0</div></div>
+    <div class="score-box draw"><div class="score-label">Draws</div><div class="score-value" id="draws">0</div></div>
+    <div class="score-box b"><div class="score-label" id="bLabel">B</div><div class="score-value" id="bWins">0</div></div>
+  </div>
+  <p class="hint" id="tableSizes"></p>
+</div>
+
+<div class="grid">
+
+  <div class="panel">
+    <h2>Live board <span id="sideTag"></span></h2>
+    <div id="board" class="board"></div>
+    <p id="moveExplanation" class="explanation"></p>
+  </div>
+
+  <div class="panel">
+    <h2>Win rate over the rolling window</h2>
+    <canvas id="rateChart" width="480" height="260"></canvas>
+    <p class="hint">Fraction of the most recent N games (window size configurable above) won by each side, or drawn.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Recent games</h2>
+    <div id="outcomeLog" class="outcome-log"></div>
+  </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

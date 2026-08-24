@@ -1,0 +1,159 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sliding-tic-tac-toe-dashboard",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5000", "live_session.pkl"],
+      "cwd": "sliding-tic-tac-toe/web_dashboard",
+      "port": 5000
+    },
+    {
+      "name": "sliding-tic-tac-toe-dashboard-td0",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5001", "live_session_td0.pkl"],
+      "cwd": "sliding-tic-tac-toe/web_dashboard",
+      "port": 5001
+    },
+    {
+      "name": "sliding-tic-tac-toe-dashboard-td0-easy",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5002", "live_session_td0_easy_mcts.pkl"],
+      "cwd": "sliding-tic-tac-toe/web_dashboard",
+      "port": 5002
+    },
+    {
+      "name": "sliding-tic-tac-toe-dashboard-selfplay",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5003", "live_session_selfplay.pkl"],
+      "cwd": "sliding-tic-tac-toe/web_dashboard",
+      "port": 5003
+    },
+    {
+      "name": "sliding-tic-tac-toe-alphazero-monitor",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5004", "selfplay_training_log.csv"],
+      "cwd": "sliding-tic-tac-toe/selfplay_dashboard",
+      "port": 5004
+    },
+    {
+      "name": "sliding-tic-tac-toe-alphazero-monitor-balanced",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5005", "selfplay_training_log_balanced.csv"],
+      "cwd": "sliding-tic-tac-toe/selfplay_dashboard",
+      "port": 5005
+    },
+    {
+      "name": "sliding-tic-tac-toe-alphazero-monitor-teacher",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5006", "selfplay_training_log_teacher.csv"],
+      "cwd": "sliding-tic-tac-toe/selfplay_dashboard",
+      "port": 5006
+    },
+    {
+      "name": "sliding-tic-tac-toe-alphazero-monitor-exploration",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5007", "selfplay_training_log_exploration.csv"],
+      "cwd": "sliding-tic-tac-toe/selfplay_dashboard",
+      "port": 5007
+    },
+    {
+      "name": "sliding-tic-tac-toe-alphazero-monitor-o-compute",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5008", "selfplay_training_log_o_compute.csv"],
+      "cwd": "sliding-tic-tac-toe/selfplay_dashboard",
+      "port": 5008
+    },
+    {
+      "name": "sliding-tic-tac-toe-alphazero-monitor-twonet",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5009", "selfplay_training_log_twonet.csv"],
+      "cwd": "sliding-tic-tac-toe/selfplay_dashboard",
+      "port": 5009
+    },
+    {
+      "name": "sliding-tic-tac-toe-alphazero-monitor-catchup",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5010", "selfplay_training_log_catchup.csv"],
+      "cwd": "sliding-tic-tac-toe/selfplay_dashboard",
+      "port": 5010
+    },
+    {
+      "name": "sliding-tic-tac-toe-alphazero-monitor-imitate",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5011", "selfplay_training_log_imitate.csv"],
+      "cwd": "sliding-tic-tac-toe/selfplay_dashboard",
+      "port": 5011
+    },
+    {
+      "name": "sliding-tic-tac-toe-alphazero-monitor-catchup-wr",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5012", "selfplay_training_log_catchup_wr.csv"],
+      "cwd": "sliding-tic-tac-toe/selfplay_dashboard",
+      "port": 5012
+    },
+    {
+      "name": "tic-tac-toe-classic-dashboard",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5013", "live_session.pkl"],
+      "cwd": "tic-tac-toe-classic/web_dashboard",
+      "port": 5013
+    },
+    {
+      "name": "tic-tac-toe-classic-dashboard-fresh",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5014", "live_session_fresh.pkl"],
+      "cwd": "tic-tac-toe-classic/web_dashboard",
+      "port": 5014
+    },
+    {
+      "name": "sliding-tic-tac-toe-play-vs-network",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5020"],
+      "cwd": "sliding-tic-tac-toe/play_vs_network",
+      "port": 5020
+    },
+    {
+      "name": "tic-tac-toe-classic-alphazero-monitor",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5015", "selfplay_training_log_base.csv"],
+      "cwd": "tic-tac-toe-classic/selfplay_dashboard",
+      "port": 5015
+    },
+    {
+      "name": "tic-tac-toe-classic-play-vs-network",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5021"],
+      "cwd": "tic-tac-toe-classic/play_vs_network",
+      "port": 5021
+    },
+    {
+      "name": "sliding-tic-tac-toe-live-alphazero-dashboard",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5030", "live_alphazero_session.pkl"],
+      "cwd": "sliding-tic-tac-toe/live_alphazero_dashboard",
+      "port": 5030
+    },
+    {
+      "name": "tic-tac-toe-classic-live-alphazero-dashboard",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5031", "live_alphazero_session.pkl"],
+      "cwd": "tic-tac-toe-classic/live_alphazero_dashboard",
+      "port": 5031
+    },
+    {
+      "name": "tic-tac-toe-classic-head-to-head",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5016"],
+      "cwd": "tic-tac-toe-classic/head_to_head_dashboard",
+      "port": 5016
+    },
+    {
+      "name": "tic-tac-toe-classic-live-match-net-vs-qagent",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["app.py", "5041"],
+      "cwd": "tic-tac-toe-classic/live_match_dashboard",
+      "port": 5041
+    }
+  ]
+}
